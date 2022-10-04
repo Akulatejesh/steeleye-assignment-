@@ -1,0 +1,45 @@
+import UIKit
+
+class ViewController: UIViewController {
+
+ override func viewDidLoad() {
+ super.viewDidLoad()
+ // Do any additional setup after loading the view, typically from a nib.
+ }
+ 
+ @IBOutlet var image_output: UIImageView!
+
+ @IBAction func perform(_ sender: Any) {
+ let alert_btn = UIAlertController(title: "Book Store", message: "Choose your book", preferredStyle: .actionSheet)
+ 
+ let cppHandler =
+ {
+ (action:UIAlertAction) -> Void in
+ self.image_output.image = UIImage(named: "4.jpeg")
+ }
+ let cHandler =
+ {
+ (action:UIAlertAction) -> Void in
+ self.image_output.image = #imageLiteral(resourceName: "GOT")
+ }
+ let jHandler =
+ {
+ (action:UIAlertAction) -> Void in
+ self.image_output.image = #imageLiteral(resourceName: "5")
+ }
+ let jsHandler =
+ {
+ (action:UIAlertAction) -> Void in
+ self.image_output.image = #imageLiteral(resourceName: "imag4")
+ }
+ 
+ alert_btn.addAction(UIAlertAction(title: "C++", style: .default, handler: cppHandler))
+ alert_btn.addAction(UIAlertAction(title: "C", style: .default, handler: cHandler))
+ alert_btn.addAction(UIAlertAction(title: "Java", style: .default, handler: jHandler))
+ alert_btn.addAction(UIAlertAction(title: "JavaScript", style: .default, handler: jsHandler))
+ 
+ self.present(alert_btn, animated: true, completion: nil)
+ }
+ 
+ 
+}
